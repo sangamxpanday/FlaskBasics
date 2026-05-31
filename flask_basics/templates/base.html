@@ -1,0 +1,18 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My App</title>
+</head>
+<body>
+  <nav><a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('jinja2') }}">Jinja2</a>
+        <a href="{{ url_for('search') }}">Search</a>
+        <a href="{{ url_for('submit') }}">Submit</a>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

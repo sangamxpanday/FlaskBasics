@@ -1,0 +1,17 @@
+
+{% block content %}
+  <h1> Hello, {{ user.username }}! </h1>
+<p>You are {{ user.age }} years old.</p>
+
+<ul>
+    {%for item in items%}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+{%if user.age >= 18%}
+    <p>You are an adult.</p>
+{% else %}
+    <p>You are not an adult.</p>
+{% endif %}
+{% endblock %}
