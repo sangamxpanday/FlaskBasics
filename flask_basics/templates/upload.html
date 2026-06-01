@@ -1,0 +1,9 @@
+{% block content %}
+  <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+    <input type="file" name="photo">
+    <button type="submit">Upload</button>
+  </form>
+{% if filename %}
+  <p>Uploaded File: {{ filename }}</p>
+{% endif %}
+{% endblock %}
