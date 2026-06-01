@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, abort
 from flask import request
 
 app = Flask(__name__)
@@ -28,6 +28,19 @@ def submit():
         name = request.form['name']
         email = request.form['email']
         return render_template('submit.html', name=name, email=email)
+    
+#Redirecting to another page
+@app.route('/redirect')
+def redirect_example():
+    return redirect(url_for('index'))
+
+@app.route('/admin')
+def admin():
+    abort(403)  # Forbidden
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template('403.html'), 403
 
 if __name__ == '__main__':
     app.run(debug=True)
